@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/addCard" method="post" enctype="multipart/form-data">
+        <input type="text" placeholder="Enter User Name" name="uname">
+        <input type="text" placeholder="Enter Location" name="location">
+        <input type="text" placeholder="Enter City Name" name="cityName">
+        <input type="text" placeholder="Enter Sale" name="sale">
+        <input type="number" placeholder="Enter price" name="price">
+        <input type="number" placeholder="Enter room" name="room">
+        <input type="number" placeholder="Enter bath" name="bath">
+        <select name="propertyType" >
+            <option value="RESEDENTIAL">RESEDENTIAL</option>
+            <option value="INDUSTRIAL">INDUSTRIAL</option>
+            <option value="COMMERCIAL">COMMERCIAL</option>
+            <option value="LAND">LAND</option>
+        </select>
+        <input type="file" name="image" >
+        <input type="file" name="image" >
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
