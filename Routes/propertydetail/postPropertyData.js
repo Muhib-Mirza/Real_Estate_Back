@@ -2,7 +2,8 @@ const express = require("express");
 const router = express.Router();
 const multer = require("multer");
 const sharp = require("sharp");
-const propData = require("../Schema/propertyCard");
+const propData = require("../../Schema/propertyCard");
+const middleware = require("../middleware");
 
 const storage = multer.diskStorage({
     destination:(req,file,cb)=>{
@@ -17,8 +18,7 @@ const upload = multer({storage});
 
 
 //Add Card Data
-router.post("/addCard", upload.array("image",2) , async (req,res)=>{
-    console.log(req.body)
+router.post("/addCard", middleware ,upload.array("image",2) , async (req,res)=>{
     if(!req.files){
         res.json({data:"Failed"})
     }else{
@@ -32,7 +32,8 @@ router.post("/addCard", upload.array("image",2) , async (req,res)=>{
             bath:req.body.bath,
             price:req.body.price,
             propertyType:req.body.propertyType,
-            cityName:req.body.cityName
+            cityName:req.body.cityName,
+            email:`${req.data.data}`,
         });
         data.save().then((result)=>{
             if(!result){

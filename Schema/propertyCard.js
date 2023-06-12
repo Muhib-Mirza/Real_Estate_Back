@@ -42,7 +42,11 @@
     cityName:{
         type:String,
         require:true,
-    }
+    },
+    email:{
+        type:String,
+        require:true,
+    },
  });
 
  const propmodel = mongoose.model("propmodel", propertySchema);

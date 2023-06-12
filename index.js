@@ -4,22 +4,26 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
-const data = require("./Routes/getPropertyData");
-const addData = require("./Routes/postPropertyData");
+const env = require("dotenv").config();
+const data = require("./Routes/propertydetail/getPropertyData")
+const addData = require("./Routes/propertydetail/postPropertyData")
 const search = require("./Routes/search");
 const FindByType = require("./Routes/findType");
-const getDetail = require("./Routes/getdetail");
-const SignIn = require("./Routes/signIn");
+const getDetail = require("./Routes/propertydetail/getdetail");
+const SignIn = require("./Routes/client/signIn");
+const logIn = require("./Routes/client/login");
+const adminReg = require("./Routes/admin/adminregister");
+const adminLog = require("./Routes/admin/adminLogin");
 
-const mdb = "mongodb+srv://muhib_mirza:black70flash@muhib-collection.np2mvjd.mongodb.net/?retryWrites=true&w=majority"
+const mdb = `${process.env.MONGO_URL}`;
+
+app.use(cookieParser());
 
 app.use(cors({
     origin:["http://localhost:3000"],
-    credentials:true
+    credentials:true,
 }));
 
-
-app.use(cookieParser());
 app.use(express.urlencoded());
 app.use(express.json());
 app.use(bodyParser.json());
@@ -31,6 +35,9 @@ app.use(search);
 app.use(FindByType);
 app.use(getDetail);
 app.use(SignIn);
+app.use(logIn);
+app.use(adminReg);
+app.use(adminLog);
 
 mongoose.connect(mdb).then(()=>{
     app.listen(4000,()=>console.log("Server Created"))
