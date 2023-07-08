@@ -45,4 +45,9 @@ router.get("/checklog", middleware ,(req,res)=>{
     }
 })
 
+router.get("/getcookie",(req,res)=>{
+    res.send(req.cookies.sessioninfo)
+    console.log(req.cookies.sessioninfo)
+})
+
 module.exports = router;

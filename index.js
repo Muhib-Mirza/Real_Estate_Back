@@ -12,8 +12,6 @@ const FindByType = require("./Routes/findType");
 const getDetail = require("./Routes/propertydetail/getdetail");
 const SignIn = require("./Routes/client/signIn");
 const logIn = require("./Routes/client/login");
-const adminReg = require("./Routes/admin/adminregister");
-const adminLog = require("./Routes/admin/adminLogin");
 
 const mdb = `${process.env.MONGO_URL}`;
 
@@ -36,8 +34,6 @@ app.use(FindByType);
 app.use(getDetail);
 app.use(SignIn);
 app.use(logIn);
-app.use(adminReg);
-app.use(adminLog);
 
 mongoose.connect(mdb).then(()=>{
     app.listen(4000,()=>console.log("Server Created"))
