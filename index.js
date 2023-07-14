@@ -18,7 +18,7 @@ const mdb = `${process.env.MONGO_URL}`;
 app.use(cookieParser());
 
 app.use(cors({
-    origin:["http://localhost:3000"],
+    origin:["http://localhost:3000","https://final-year-project-lac.vercel.app/?vercelToolbarCode=42jwnt6i7cc90MZ"],
     credentials:true,
 }));
 
