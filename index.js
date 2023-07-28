@@ -11,14 +11,15 @@ const search = require("./Routes/search");
 const FindByType = require("./Routes/findType");
 const getDetail = require("./Routes/propertydetail/getdetail");
 const SignIn = require("./Routes/client/signIn");
-const logIn = require("./Routes/client/login");
+const logIn = require("./Routes/client/register");
+const addProperty = require("./Routes/addProperty/addproperty");
 
 const mdb = `${process.env.MONGO_URL}`;
 
 app.use(cookieParser());
 
 app.use(cors({
-    origin:["http://localhost:3000","https://final-year-project-lac.vercel.app/?vercelToolbarCode=42jwnt6i7cc90MZ"],
+    origin:["https://final-year-project-lac.vercel.app/?vercelToolbarCode=42jwnt6i7cc90MZ","http://localhost:3000"],
     credentials:true,
 }));
 
@@ -34,6 +35,7 @@ app.use(FindByType);
 app.use(getDetail);
 app.use(SignIn);
 app.use(logIn);
+app.use(addProperty);
 
 mongoose.connect(mdb).then(()=>{
     app.listen(4000,()=>console.log("Server Created"))

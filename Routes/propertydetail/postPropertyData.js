@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const multer = require("multer");
-const sharp = require("sharp");
 const propData = require("../../Schema/propertyCard");
 const middleware = require("../middleware");
 

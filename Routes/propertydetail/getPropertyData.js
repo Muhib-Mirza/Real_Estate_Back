@@ -27,7 +27,7 @@ router.get("/alldata",(req,res)=>{
 })
 
 
-router.get("/checklog", middleware ,(req,res)=>{
+router.get("/authentication", middleware ,(req,res)=>{
     if(req.data.data == null || req.data.data == ""){
         res.json({message:false})
     }else{
@@ -43,11 +43,6 @@ router.get("/checklog", middleware ,(req,res)=>{
             res.json({message1:true,message2:true});
         }
     }
-})
-
-router.get("/getcookie",(req,res)=>{
-    res.send(req.cookies.sessioninfo)
-    console.log(req.cookies.sessioninfo)
 })
 
 module.exports = router;
